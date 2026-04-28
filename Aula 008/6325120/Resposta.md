@@ -31,4 +31,27 @@ b)**O nome para isso é Auto Healing, ou Self-Healing, uma auto cura das suas ma
 # Tarefa Prática Integrada (Obrigatória)
 
 ## Passo 1: Inicialização do Cluster
+Códigos usados: **docker info | grep Swarm, docker service rm web-escalavel, docker swarm leave --force, docker service ls**
+![](./image/image5.png)
 
+**Criação do swarm: *docker swarm init*
+![](./image/image6.png)
+
+## Passo 2: Deploy de um Serviço
+Código: **docker service create --name app-stack-tf9 --replicas 4 -p 8001:80 nginx:alpine**
+![](./image/image7.png)
+
+## Passo 3: Validação e Evidências
+Comando usado: **docker service ps app-stack-tf9**
+![](./image/image8.png)
+
+**Conexão via curl localhost:8001**
+![](./image/image9.png)
+
+## Passo 4: Escalabilidade
+Código utilizado: **docker service scale app-stack-tf9=1**
+![](./image/image10.png)
+
+## Passo 5: Limpeza Final
+Comandos utilizados para a limpeza e a verificação: **docker service rm app-stack-tf9, docker swarm leave --force, docker service ls**
+![](./image/image11.png)
